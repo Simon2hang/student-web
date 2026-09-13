@@ -2,18 +2,13 @@
 title: "About Me"
 ---
 
-Write a short biography here.
+I am a student studying Data Science and Economics with interests in finance, technology, and quantitative research. My academic and professional experiences have included data engineering, investment research, and financial analysis. I am particularly interested in applying data-driven methods to real-world economic and financial problems. Outside of academics, I enjoy soccer, basketball, photography, and traveling.
 
-Include:
-
--   Educational background
--   Professional interests
--   Technical skills
--   Career goals
 
 ## Education
 
-Master of Applied Economics and Data Science, University of Pennsylvania (expaceted 2027) Batelor of Science, University Name 2026
+Master of Applied Economics and Data Science, University of Pennsylvania (expaceted 2027)
+Bachelors of science, Data Science and Economics, Northeastern University
 
 ## Interests
 
@@ -22,7 +17,8 @@ Master of Applied Economics and Data Science, University of Pennsylvania (expace
 -   Data Analysis
 
 ## Contact
++1 8579309925
 
-## student\@email.edu
+simzhang@sas.upenn.edu
 
 ------------------------------------------------------------------------

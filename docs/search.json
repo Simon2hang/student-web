@@ -2,23 +2,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Student Name",
+    "title": "Simon Zhang",
     "section": "",
-    "text": "Student Name\nUniversity of Pennsylvaina\nWelcome to my personal website.\n\nQuick Links"
+    "text": "Simon Zhang\nUniversity of Pennsylvaina\nWelcome to my personal website.\n\nQuick Links"
   },
   {
     "objectID": "bio.html",
     "href": "bio.html",
     "title": "About Me",
     "section": "",
-    "text": "Write a short biography here.\nInclude:"
+    "text": "I am a student studying Data Science and Economics with interests in finance, technology, and quantitative research. My academic and professional experiences have included data engineering, investment research, and financial analysis. I am particularly interested in applying data-driven methods to real-world economic and financial problems. Outside of academics, I enjoy soccer, basketball, photography, and traveling."
   },
   {
     "objectID": "bio.html#education",
     "href": "bio.html#education",
     "title": "About Me",
     "section": "Education",
-    "text": "Education\nMaster of Applied Economics and Data Science, University of Pennsylvania (expaceted 2027) Batelor of Science, University Name 2026"
+    "text": "Education\nMaster of Applied Economics and Data Science, University of Pennsylvania (expaceted 2027) Bachelors of science, Data Science and Economics, Northeastern University"
   },
   {
     "objectID": "bio.html#interests",
@@ -32,7 +32,7 @@
     "href": "bio.html#contact",
     "title": "About Me",
     "section": "Contact",
-    "text": "Contact"
+    "text": "Contact\n+1 8579309925\nsimzhang@sas.upenn.edu"
   },
   {
     "objectID": "bio.html#studentemail.edu",
@@ -46,14 +46,14 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "My First Blog Post\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMy Second Blog Post\n\n\n\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Understanding the Law of Large Numbers\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMy Second Blog Post\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post1/Untitled.html",
     "href": "blog/posts/post1/Untitled.html",
-    "title": "My First Blog Post",
+    "title": "Understanding the Law of Large Numbers",
     "section": "",
-    "text": "This is my first blog post. Example \\(\\LaTeX\\) equation: \\(\\frac{1}{2}\\sum_{i=1}^nx_i\\)"
+    "text": "Let’s imagine a scenario in which a person flips a fair coin ten times, and, by chance, it lands heads eight times. Since the probability of a fair coin landing heads is 50%, an 80% heads rate seems somewhat illogical. This raises a classic question: If we continue flipping the coin, should we expect a string of tails to “make up” for these extra heads?\nThis question both illustrates the intuition behind the Law of Large Numbers and reveals one of the most common misunderstandings about it.\nThe law of large numbers states that, under appropriate conditions, as the number of observations increases, the average of the results from multiple observations will approach the expected value. For a fair coin, the expected proportion of heads is 0.5. However, if the coin is flipped only a few times, the observed proportion may deviate significantly from 0.5. As the number of flips increases, this proportion typically becomes more stable.\nMathematically, if we observe values (X_1, X_2…X_n), their sample average is\n\\[\n\\bar{X}_n = \\frac{1}{n}\\sum_{i=1}^{n}X_i.\n\\]\nThe Law of Large Numbers tells that, as (n) becomes larger and larger,\n\\[\n\\bar{X}_n \\rightarrow E[X],\n\\]\nwhere (E[X]) is the expected value of the underlying random variable.\nFor a coin flip, we can define heads as 1 and tails as 0. For a fair coin,\n\\[\nE[X] = 0.5.\n\\]\nSo if we flip the coin again and again, the average of these zeros and ones tends to move toward 0.5."
   },
   {
     "objectID": "resume.html",
@@ -75,5 +75,61 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "blog/posts/post1/Untitled.html#why-is-this-unintuitive",
+    "href": "blog/posts/post1/Untitled.html#why-is-this-unintuitive",
+    "title": "Understanding the Law of Large Numbers",
+    "section": "Why Is This Unintuitive?",
+    "text": "Why Is This Unintuitive?\nSurprisingly, the law of large numbers does not imply that random outcomes will actively correct themselves.\nSuppose that eight out of the first ten coin flips result in heads. Most people’s common reaction might be to think that the probability of getting tails must now be higher so that the overall ratio can return to 50%. This is actually a classic example of a fallacy.\nIf the coin tosses are independent of one another, then the probability of getting heads on the eleventh toss is still exactly 50%. The coin does not “remember” what happened before.\nSo, how does the average eventually converge toward 50%?\nThe answer is not “correction,” but dilution.\nAfter ten tosses, the first ten observations make up the entire sample. After 1,000 tosses, these first ten observations account for only 1% of the sample; after 10,000 tosses, they account for only 0.1%. The initial anomaly hasn’t disappeared, but its impact on the overall average becomes increasingly small.\nIn other words, the law of large numbers holds true because, as the number of observations increases, the influence of early random fluctuations becomes increasingly negligible."
+  },
+  {
+    "objectID": "blog/posts/post1/Untitled.html#more-data-does-not-mean-perfect-data",
+    "href": "blog/posts/post1/Untitled.html#more-data-does-not-mean-perfect-data",
+    "title": "Understanding the Law of Large Numbers",
+    "section": "More Data Does Not Mean Perfect Data",
+    "text": "More Data Does Not Mean Perfect Data\nAnother common misconception is that a large sample size will always yield results that perfectly match the expected value. However, the law does not guarantee this.\nEven if you flip a coin thousands of times, the proportion of heads might be 49.7% or 50.4%, rather than exactly 50%. Random fluctuations still occur. The key point is that as the sample size increases, the frequency of large deviations decreases.\nThe importance of this concept extends far beyond coin flipping. Economists use sample means to estimate wages, unemployment rates, consumer spending, and many other indicators. A survey of 20 people may be strongly influenced by a few outliers. Larger, representative samples are typically more stable because individual random variations have less impact on the population mean.\nThis is also why collecting more data improves statistical estimates. More observations do not eliminate randomness, but they reduce the impact of random fluctuations in any small portion of the sample."
+  },
+  {
+    "objectID": "blog/posts/post1/Untitled.html#the-takeaway",
+    "href": "blog/posts/post1/Untitled.html#the-takeaway",
+    "title": "My First Blog Post",
+    "section": "",
+    "text": "The Law of Large Numbers does not say that luck “balances itself out” because future outcomes compensate for past ones. Instead, it says that as more independent observations accumulate, unusual early outcomes become a smaller part of the overall average.\nA useful way to remember the idea is:\nLarge numbers do not correct randomness—they dilute it.\nThat distinction is what makes the Law of Large Numbers both powerful and easy to misunderstand."
+  },
+  {
+    "objectID": "blog/posts/post1/Untitled.html#key-points-summary",
+    "href": "blog/posts/post1/Untitled.html#key-points-summary",
+    "title": "Understanding the Law of Large Numbers",
+    "section": "Key Points Summary",
+    "text": "Key Points Summary\nThe Law of Large Numbers does not mean that luck “balances itself out” by compensating for past results with future ones. Rather, it states that as more independent observations accumulate, the proportion of early outliers in the overall mean becomes increasingly small.\nA practical way to remember this concept is:\nLarge numbers do not correct for randomness—they merely dilute it.\nIt is precisely this distinction that makes the Law of Large Numbers both powerful and prone to misunderstanding."
+  },
+  {
+    "objectID": "blog/posts/post1/Post1.html",
+    "href": "blog/posts/post1/Post1.html",
+    "title": "Understanding the Law of Large Numbers",
+    "section": "",
+    "text": "Let’s imagine a scenario in which a person flips a fair coin ten times, and, by chance, it lands heads eight times. Since the probability of a fair coin landing heads is 50%, an 80% heads rate seems somewhat illogical. This raises a classic question: If we continue flipping the coin, should we expect a string of tails to “make up” for these extra heads?\nThis question both illustrates the intuition behind the Law of Large Numbers and reveals one of the most common misunderstandings about it.\nThe law of large numbers states that, under appropriate conditions, as the number of observations increases, the average of the results from multiple observations will approach the expected value. For a fair coin, the expected proportion of heads is 0.5. However, if the coin is flipped only a few times, the observed proportion may deviate significantly from 0.5. As the number of flips increases, this proportion typically becomes more stable.\nMathematically, if we observe values (X_1, X_2…X_n), their sample average is\n\\[\n\\bar{X}_n = \\frac{1}{n}\\sum_{i=1}^{n}X_i.\n\\]\nThe Law of Large Numbers tells that, as (n) becomes larger and larger,\n\\[\n\\bar{X}_n \\rightarrow E[X],\n\\]\nwhere (E[X]) is the expected value of the underlying random variable.\nFor a coin flip, we can define heads as 1 and tails as 0. For a fair coin,\n\\[\nE[X] = 0.5.\n\\]\nSo if we flip the coin again and again, the average of these zeros and ones tends to move toward 0.5."
+  },
+  {
+    "objectID": "blog/posts/post1/Post1.html#why-is-this-unintuitive",
+    "href": "blog/posts/post1/Post1.html#why-is-this-unintuitive",
+    "title": "Understanding the Law of Large Numbers",
+    "section": "Why Is This Unintuitive?",
+    "text": "Why Is This Unintuitive?\nSurprisingly, the law of large numbers does not imply that random outcomes will actively correct themselves.\nSuppose that eight out of the first ten coin flips result in heads. Most people’s common reaction might be to think that the probability of getting tails must now be higher so that the overall ratio can return to 50%. This is actually a classic example of a fallacy.\nIf the coin tosses are independent of one another, then the probability of getting heads on the eleventh toss is still exactly 50%. The coin does not “remember” what happened before.\nSo, how does the average eventually converge toward 50%?\nThe answer is not “correction,” but dilution.\nAfter ten tosses, the first ten observations make up the entire sample. After 1,000 tosses, these first ten observations account for only 1% of the sample; after 10,000 tosses, they account for only 0.1%. The initial anomaly hasn’t disappeared, but its impact on the overall average becomes increasingly small.\nIn other words, the law of large numbers holds true because, as the number of observations increases, the influence of early random fluctuations becomes increasingly negligible."
+  },
+  {
+    "objectID": "blog/posts/post1/Post1.html#more-data-does-not-mean-perfect-data",
+    "href": "blog/posts/post1/Post1.html#more-data-does-not-mean-perfect-data",
+    "title": "Understanding the Law of Large Numbers",
+    "section": "More Data Does Not Mean Perfect Data",
+    "text": "More Data Does Not Mean Perfect Data\nAnother common misconception is that a large sample size will always yield results that perfectly match the expected value. However, the law does not guarantee this.\nEven if you flip a coin thousands of times, the proportion of heads might be 49.7% or 50.4%, rather than exactly 50%. Random fluctuations still occur. The key point is that as the sample size increases, the frequency of large deviations decreases.\nThe importance of this concept extends far beyond coin flipping. Economists use sample means to estimate wages, unemployment rates, consumer spending, and many other indicators. A survey of 20 people may be strongly influenced by a few outliers. Larger, representative samples are typically more stable because individual random variations have less impact on the population mean.\nThis is also why collecting more data improves statistical estimates. More observations do not eliminate randomness, but they reduce the impact of random fluctuations in any small portion of the sample."
+  },
+  {
+    "objectID": "blog/posts/post1/Post1.html#key-points-summary",
+    "href": "blog/posts/post1/Post1.html#key-points-summary",
+    "title": "Understanding the Law of Large Numbers",
+    "section": "Key Points Summary",
+    "text": "Key Points Summary\nThe Law of Large Numbers does not mean that luck “balances itself out” by compensating for past results with future ones. Rather, it states that as more independent observations accumulate, the proportion of early outliers in the overall mean becomes increasingly small.\nA practical way to remember this concept is:\nLarge numbers do not correct for randomness—they merely dilute it.\nIt is precisely this distinction that makes the Law of Large Numbers both powerful and prone to misunderstanding."
   }
 ]
