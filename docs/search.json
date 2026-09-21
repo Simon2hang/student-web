@@ -46,7 +46,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Understanding the Law of Large Numbers\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMy Second Blog Post\n\n\n\n\n\n\n\n\nJun 16, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Who Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post1/Untitled.html",
@@ -131,5 +131,54 @@
     "title": "Understanding the Law of Large Numbers",
     "section": "Key Points Summary",
     "text": "Key Points Summary\nThe Law of Large Numbers does not mean that luck “balances itself out” by compensating for past results with future ones. Rather, it states that as more independent observations accumulate, the proportion of early outliers in the overall mean becomes increasingly small.\nA practical way to remember this concept is:\nLarge numbers do not correct for randomness—they merely dilute it.\nIt is precisely this distinction that makes the Law of Large Numbers both powerful and prone to misunderstanding."
+  },
+  {
+    "objectID": "blog/posts/post2/index.html",
+    "href": "blog/posts/post2/index.html",
+    "title": "Who Had the Biggest Impact in the 2025–26 NBA Season?",
+    "section": "",
+    "text": "Basketball fans often judge players first and foremost by one statistic: points per game. While scoring is certainly important, it doesn’t fully reflect a player’s contribution. Players can add value through passing, rebounding, efficient shooting, defense, and simply helping their team perform better on the court.\nThis has sparked my interest in a broader question: Which players had the greatest overall impact during the 2025–26 NBA regular season?"
+  },
+  {
+    "objectID": "blog/posts/post2/index.html#collecting-the-data",
+    "href": "blog/posts/post2/index.html#collecting-the-data",
+    "title": "Who Had the Biggest Impact in the 2025–26 NBA Season?",
+    "section": "Collecting the Data",
+    "text": "Collecting the Data\nI collected player statistics from Basketball-Reference using the rvest package in R. I scraped two publicly available tables: one containing traditional per-game statistics and another containing advanced statistics.\nThe traditional data included points, rebounds, assists, steals, and blocks per game. The advanced dataset included measures such as True Shooting Percentage (TS%), Box Plus/Minus (BPM), Win Shares, and Value Over Replacement Player (VORP).\nTo keep the scraping process lightweight, I only requested the two pages needed for the analysis and inserted a short delay between requests. The raw tables were saved before any cleaning so that the analysis could be reproduced from the original scraped data.\nAfter scraping, I removed summary rows, converted the relevant variables to numeric form, handled players who appeared for multiple teams, and merged the traditional and advanced datasets. I then restricted the sample to players who appeared in at least 50 games."
+  },
+  {
+    "objectID": "blog/posts/post2/index.html#does-more-scoring-mean-more-impact",
+    "href": "blog/posts/post2/index.html#does-more-scoring-mean-more-impact",
+    "title": "Who Had the Biggest Impact in the 2025–26 NBA Season?",
+    "section": "Does More Scoring Mean More Impact?",
+    "text": "Does More Scoring Mean More Impact?\n\nThe first figure compares points per game with BPM, an advanced measure of a player’s estimated contribution relative to an average player.\nThere is clearly a positive relationship: higher-scoring players generally tend to have higher BPM. However, the relationship is far from perfect. Nikola Jokić stands out with the highest BPM even though he was not the league’s highest scorer. Shai Gilgeous-Alexander, Luka Dončić, Victor Wembanyama, and Kawhi Leonard also combine high scoring with strong BPM.\nThis suggests that scoring contains useful information about player quality, but it does not capture the full picture."
+  },
+  {
+    "objectID": "blog/posts/post2/index.html#efficiency-is-not-the-same-as-total-value",
+    "href": "blog/posts/post2/index.html#efficiency-is-not-the-same-as-total-value",
+    "title": "Who Had the Biggest Impact in the 2025–26 NBA Season?",
+    "section": "Efficiency Is Not the Same as Total Value",
+    "text": "Efficiency Is Not the Same as Total Value\n\nThe second figure compares True Shooting Percentage with VORP. TS% measures scoring efficiency while accounting for two-point shots, three-point shots, and free throws. VORP, in contrast, is intended to capture a player’s cumulative value relative to a replacement-level player.\nAgain, the relationship is positive but imperfect. Some players on the far right of the graph have extremely high shooting efficiency but relatively modest VORP. This can happen when a player takes fewer shots or has a smaller offensive role.\nThe most interesting players are therefore in the upper-right portion of the graph: they combine strong efficiency with high overall value. Jokić is especially notable, while Gilgeous-Alexander, Dončić, Wembanyama, Leonard, and Kevin Durant also perform strongly across these dimensions."
+  },
+  {
+    "objectID": "blog/posts/post2/index.html#building-a-simple-impact-score",
+    "href": "blog/posts/post2/index.html#building-a-simple-impact-score",
+    "title": "Who Had the Biggest Impact in the 2025–26 NBA Season?",
+    "section": "Building a Simple Impact Score",
+    "text": "Building a Simple Impact Score\nTo compare players across several dimensions at once, I constructed a simple composite Impact Score. I standardized six variables—points, rebounds, assists, TS%, BPM, and VORP—using z-scores and then gave each variable equal weight.\nThis is not an official NBA statistic. It is simply a transparent way to combine different types of contribution into one measure.\n\nBased on this evaluation criteria, Nikola Jokić tops the list by a wide margin, followed closely by Luka Dončić and Shai Gilgeous-Alexander. Victor Wembanyama ranks fourth, while Jalen Johnson, Kawhi Leonard, Cade Cunningham, Tyrese Maxey, Jalen Duren, and Kevin Durant round out the top ten.\nA key finding is that this ranking does not simply mirror the scoring leaderboard. For example, Dončić ranks first in points per game among the players in this sample, but Jokić ranks higher in the comprehensive metrics due to his exceptional performance across multiple categories."
+  },
+  {
+    "objectID": "blog/posts/post2/index.html#takeaway",
+    "href": "blog/posts/post2/index.html#takeaway",
+    "title": "Who Had the Biggest Impact in the 2025–26 NBA Season?",
+    "section": "Takeaway",
+    "text": "Takeaway\nThe main lesson from this analysis is simple: points per game are useful, but they should not be used alone to evaluate NBA players.\nScoring, efficiency, playmaking, rebounding, and advanced impact measures capture different parts of a player’s contribution. For fans or analysts comparing players, combining traditional statistics with measures such as BPM, VORP, and TS% provides a more complete picture than relying on scoring alone.\nAt the same time, any composite ranking depends on how “impact” is defined. My Impact Score gives equal weight to six statistics, and a different weighting scheme could produce a different ranking. The goal is therefore not to create a definitive list of the NBA’s best players, but to show how web-scraped data can produce a more nuanced comparison than a single statistic."
+  },
+  {
+    "objectID": "blog/posts/post2/index.html#data-collection",
+    "href": "blog/posts/post2/index.html#data-collection",
+    "title": "Who Had the Biggest Impact in the 2025–26 NBA Season?",
+    "section": "Data Collection",
+    "text": "Data Collection\nI used the rvest package in R to collect player statistics from the Basketball-Reference website. I scraped two publicly available data tables: one containing traditional per-game statistics and the other containing advanced statistics.\nThe traditional data includes points per game, rebounds, assists, steals, and blocks. The advanced dataset contains metrics such as True Shooting Percentage (TS%), Box Plus/Minus (BPM), Win Shares, and Value Over Replacement Player (VORP).\nTo keep the scraping process lightweight, I requested only the two pages of data needed for the analysis and inserted a brief delay between each request. Before performing any data cleaning, I saved the original tables so that I could reproduce the analysis results based on the raw scraped data.\nAfter the scraping was complete, I removed the summary rows, converted relevant variables to numerical formats, handled players who had played for multiple teams, and merged the traditional and advanced data sets. I then limited the sample to players who had appeared in at least 50 games."
   }
 ]
