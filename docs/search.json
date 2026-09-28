@@ -46,7 +46,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Who Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Who Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nHow Does Unemployment Vary by Education?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post1/Untitled.html",
@@ -180,5 +180,47 @@
     "title": "Who Had the Biggest Impact in the 2025–26 NBA Season?",
     "section": "Data Collection",
     "text": "Data Collection\nI used the rvest package in R to collect player statistics from the Basketball-Reference website. I scraped two publicly available data tables: one containing traditional per-game statistics and the other containing advanced statistics.\nThe traditional data includes points per game, rebounds, assists, steals, and blocks. The advanced dataset contains metrics such as True Shooting Percentage (TS%), Box Plus/Minus (BPM), Win Shares, and Value Over Replacement Player (VORP).\nTo keep the scraping process lightweight, I requested only the two pages of data needed for the analysis and inserted a brief delay between each request. Before performing any data cleaning, I saved the original tables so that I could reproduce the analysis results based on the raw scraped data.\nAfter the scraping was complete, I removed the summary rows, converted relevant variables to numerical formats, handled players who had played for multiple teams, and merged the traditional and advanced data sets. I then limited the sample to players who had appeared in at least 50 games."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html",
+    "href": "blog/posts/post3/index.html",
+    "title": "How Does Unemployment Vary by Education?",
+    "section": "",
+    "text": "Education is often associated with better labor-market outcomes, but how large is the difference in unemployment across education groups? Does the gap only appear in a single year, or is it persistent over time?\nTo explore these questions, I use data from the IPUMS Current Population Survey (CPS) to compare unemployment rates across educational attainment groups among U.S. adults ages 25–64."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#data-and-method",
+    "href": "blog/posts/post3/index.html#data-and-method",
+    "title": "How Does Unemployment Vary by Education?",
+    "section": "Data and Method",
+    "text": "Data and Method\nI use the March Basic Monthly CPS samples from 2015 through 2025. I restrict the sample to adults between ages 25 and 64 who are in the labor force. This age range helps focus the analysis on people who are more likely to have completed their education and are still within their main working years.\nI divide educational attainment into five groups:\n\nLess than high school\nHigh school\nSome college / Associate degree\nBachelor’s degree\nGraduate degree\n\nImportantly, the CPS is a survey rather than a complete count of the U.S. population. Therefore, I use the CPS final person weight, WTFINL, when calculating unemployment rates. This makes the results representative of the population rather than simply describing the observations in the downloaded sample.\nThe unemployment rate is calculated as the weighted share of labor-force participants who are unemployed."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#unemployment-in-2025",
+    "href": "blog/posts/post3/index.html#unemployment-in-2025",
+    "title": "How Does Unemployment Vary by Education?",
+    "section": "Unemployment in 2025",
+    "text": "Unemployment in 2025\n\nThe first figure shows a clear relationship between education and unemployment in March 2025.\nAdults with less than a high school education had the highest unemployment rate, at roughly 7%. The rate falls to around 4.5% among high school graduates and around 3.7% among people with some college or an associate degree.\nThe unemployment rate is lowest among people with bachelor’s and graduate degrees, both of which are around 2–3%.\nThe pattern suggests a clear education gradient: higher educational attainment is associated with lower unemployment."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#has-this-pattern-been-stable-over-time",
+    "href": "blog/posts/post3/index.html#has-this-pattern-been-stable-over-time",
+    "title": "How Does Unemployment Vary by Education?",
+    "section": "Has This Pattern Been Stable Over Time?",
+    "text": "Has This Pattern Been Stable Over Time?\n\nThe chart shows unemployment rates by educational attainment from 2015 to 2025.\nThis ranking has shown remarkable stability. Almost every year, adults with less than a high school education have had the highest unemployment rates, while those with bachelor’s and graduate degrees have had the lowest.\nAll educational groups experienced a marked increase in unemployment rates around 2021. However, the rise in unemployment rates was much steeper for workers with lower levels of education. The unemployment rate for those without a high school diploma rose to nearly 10 percent, while the increase for college graduates was much smaller."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#does-age-explain-the-difference",
+    "href": "blog/posts/post3/index.html#does-age-explain-the-difference",
+    "title": "How Does Unemployment Vary by Education?",
+    "section": "Does Age Explain the Difference?",
+    "text": "Does Age Explain the Difference?\n\nOne possible explanation for the educational gap is that there may also be age differences among people with different educational levels. To explore this, I divided the 2025 sample into four age groups.\nIn most age groups, the overall trend remains the same. The unemployment rate for those with less than a high school education remains relatively high, while the unemployment rate for those with bachelor’s and graduate degrees is generally lower.\nThis disparity is particularly pronounced among adults aged 25 to 34. In this group, the unemployment rate for those without a high school diploma exceeds 10 percent, while the unemployment rate for those with a bachelor’s or graduate degree is approximately 3 percent.\nThis suggests that the overall relationship between educational attainment and unemployment rates is not solely attributable to differences in the age structure of various educational groups."
+  },
+  {
+    "objectID": "blog/posts/post3/index.html#takeaway",
+    "href": "blog/posts/post3/index.html#takeaway",
+    "title": "How Does Unemployment Vary by Education?",
+    "section": "Takeaway",
+    "text": "Takeaway\nBased on these three charts, the conclusion is consistent: The higher the level of education, the lower the unemployment rate.\nThis correlation is evident in the 2025 cross-sectional data, persists throughout the period from 2015 to 2025, and remains pronounced across different age groups.\nHowever, this analysis is purely descriptive and does not prove that higher educational attainment directly leads to lower unemployment rates. Other factors, such as occupation, industry, work experience, and worker characteristics, may also influence these differences."
   }
 ]
