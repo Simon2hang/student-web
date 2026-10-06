@@ -1,0 +1,62 @@
+---
+title: "Are Americans Actually Better Off Than 10 Years Ago?"
+author: "Simon Zhang"
+---
+
+Over the past decade, wages in the United States have risen significantly. But in reality, we all know that an increase in the numbers on a pay stub does not necessarily mean an improvement in living standards. If prices rise at the same time, much of that wage growth may simply be used to offset the rising cost of living for workers.
+
+This raises a simple question: **Are Americans really better off than they were a decade ago?**
+
+In this article, I will focus on the purchasing power of wages. Using data from the Federal Reserve’s Economic Data (FRED) database, I compare changes in the average hourly wage for private-sector workers with changes in the Consumer Price Index (CPI) from 2015 to 2025.
+
+Translated with DeepL.com (free version)
+
+## Wages Have Risen, But So Have Prices
+
+![](figures/wages_vs_prices.png)
+
+The first chart compares nominal hourly wages with consumer prices. To facilitate a comparison between these two sets of data, I have converted both into indices, with the 2015 average set as 100.
+
+By 2025, it is clear that the nominal wage index has risen to approximately 145, meaning that the average hourly wage is about 45% higher than the 2015 level. However, the consumer price index has also risen significantly, reaching approximately 136.
+
+If we look solely at wages, it appears that workers’ living standards have improved significantly. However, prices rose by more than 30% over the same period. Therefore, this result is highly counterintuitive.
+
+Nevertheless, wages grew at a slightly faster rate than prices. This suggests that workers’ purchasing power has improved overall, although the increase is far lower than what would be implied by considering nominal wage growth alone.
+
+## What Happens After Adjusting for Inflation?
+
+![](figures/real_wage_index.png)
+
+To observe changes in purchasing power more intuitively, I constructed a real wage index by dividing nominal hourly wages by the CPI, again setting 2015 as 100.
+
+The results paint a much more moderate picture.
+
+By 2025, the real wage index stands at approximately 107. In other words, according to this metric, the purchasing power of the average hourly wage has **increased by about 7%** compared to 2015.
+
+This trend has not been smooth sailing. From 2015 to 2019, real wages rose gradually; they surged sharply around 2020; then declined in 2021 and 2022 before beginning to rebound.
+
+This is why adjusting for inflation is crucial. A 45% increase in nominal wages does not mean that the goods and services these wages can actually purchase have increased by 45% accordingly.
+
+The sharp fluctuations around 2020 should also be interpreted with caution. Changes in the employment structure during the pandemic may have affected average hourly wages; therefore, this surge should not automatically be interpreted as a sudden, equal increase in purchasing power for every worker.
+
+
+
+## The Story Changes Depending on the Period
+
+![](figures/wage_growth_by_period.png)
+
+The third figure separates the decade into three periods and compares nominal wage growth, price growth, and real wage growth.
+
+From **2015 to 2019**, wages increased noticeably faster than prices, producing relatively strong real wage growth.
+
+From **2019 to 2022**, nominal wage growth accelerated, but inflation accelerated almost as much. As a result, the gain in real purchasing power was very small. This period shows why rapidly rising nominal wages can feel less impressive when prices are rising nearly as quickly.
+
+From **2022 to 2025**, wages once again grew faster than prices. Real wage growth therefore became positive again, helping purchasing power recover from the inflation-heavy period immediately before it.
+
+## So, Are Americans Better Off?
+
+Based on this metric, the answer is **yes, but to a limited extent**.
+
+Over the past decade, average hourly wages in the private sector have grown faster than consumer prices, so real hourly purchasing power in 2025 is slightly higher than in 2015. However, this improvement is far smaller than what the growth in nominal wages would suggest.
+
+This analysis also has limitations. “Improved living standards” may involve housing costs, wealth, healthcare, taxes, job security, and many other factors, none of which are reflected in average hourly wages or the CPI. 

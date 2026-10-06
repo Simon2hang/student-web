@@ -46,7 +46,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Who Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nHow Does Unemployment Vary by Education?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Who Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nHow Does Unemployment Vary by Education?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nAre Americans Actually Better Off Than 10 Years Ago?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post1/Untitled.html",
@@ -222,5 +222,40 @@
     "title": "How Does Unemployment Vary by Education?",
     "section": "Takeaway",
     "text": "Takeaway\nBased on these three charts, the conclusion is consistent: The higher the level of education, the lower the unemployment rate.\nThis correlation is evident in the 2025 cross-sectional data, persists throughout the period from 2015 to 2025, and remains pronounced across different age groups.\nHowever, this analysis is purely descriptive and does not prove that higher educational attainment directly leads to lower unemployment rates. Other factors, such as occupation, industry, work experience, and worker characteristics, may also influence these differences."
+  },
+  {
+    "objectID": "blog/posts/post4/index.html",
+    "href": "blog/posts/post4/index.html",
+    "title": "Are Americans Actually Better Off Than 10 Years Ago?",
+    "section": "",
+    "text": "Over the past decade, wages in the United States have risen significantly. But in reality, we all know that an increase in the numbers on a pay stub does not necessarily mean an improvement in living standards. If prices rise at the same time, much of that wage growth may simply be used to offset the rising cost of living for workers.\nThis raises a simple question: Are Americans really better off than they were a decade ago?\nIn this article, I will focus on the purchasing power of wages. Using data from the Federal Reserve’s Economic Data (FRED) database, I compare changes in the average hourly wage for private-sector workers with changes in the Consumer Price Index (CPI) from 2015 to 2025.\nTranslated with DeepL.com (free version)"
+  },
+  {
+    "objectID": "blog/posts/post4/index.html#wages-have-risen-but-so-have-prices",
+    "href": "blog/posts/post4/index.html#wages-have-risen-but-so-have-prices",
+    "title": "Are Americans Actually Better Off Than 10 Years Ago?",
+    "section": "Wages Have Risen, But So Have Prices",
+    "text": "Wages Have Risen, But So Have Prices\n\nThe first chart compares nominal hourly wages with consumer prices. To facilitate a comparison between these two sets of data, I have converted both into indices, with the 2015 average set as 100.\nBy 2025, it is clear that the nominal wage index has risen to approximately 145, meaning that the average hourly wage is about 45% higher than the 2015 level. However, the consumer price index has also risen significantly, reaching approximately 136.\nIf we look solely at wages, it appears that workers’ living standards have improved significantly. However, prices rose by more than 30% over the same period. Therefore, this result is highly counterintuitive.\nNevertheless, wages grew at a slightly faster rate than prices. This suggests that workers’ purchasing power has improved overall, although the increase is far lower than what would be implied by considering nominal wage growth alone."
+  },
+  {
+    "objectID": "blog/posts/post4/index.html#what-happens-after-adjusting-for-inflation",
+    "href": "blog/posts/post4/index.html#what-happens-after-adjusting-for-inflation",
+    "title": "Are Americans Actually Better Off Than 10 Years Ago?",
+    "section": "What Happens After Adjusting for Inflation?",
+    "text": "What Happens After Adjusting for Inflation?\n\nTo observe changes in purchasing power more intuitively, I constructed a real wage index by dividing nominal hourly wages by the CPI, again setting 2015 as 100.\nThe results paint a much more moderate picture.\nBy 2025, the real wage index stands at approximately 107. In other words, according to this metric, the purchasing power of the average hourly wage has increased by about 7% compared to 2015.\nThis trend has not been smooth sailing. From 2015 to 2019, real wages rose gradually; they surged sharply around 2020; then declined in 2021 and 2022 before beginning to rebound.\nThis is why adjusting for inflation is crucial. A 45% increase in nominal wages does not mean that the goods and services these wages can actually purchase have increased by 45% accordingly.\nThe sharp fluctuations around 2020 should also be interpreted with caution. Changes in the employment structure during the pandemic may have affected average hourly wages; therefore, this surge should not automatically be interpreted as a sudden, equal increase in purchasing power for every worker."
+  },
+  {
+    "objectID": "blog/posts/post4/index.html#the-story-changes-depending-on-the-period",
+    "href": "blog/posts/post4/index.html#the-story-changes-depending-on-the-period",
+    "title": "Are Americans Actually Better Off Than 10 Years Ago?",
+    "section": "The Story Changes Depending on the Period",
+    "text": "The Story Changes Depending on the Period\n\nThe third figure separates the decade into three periods and compares nominal wage growth, price growth, and real wage growth.\nFrom 2015 to 2019, wages increased noticeably faster than prices, producing relatively strong real wage growth.\nFrom 2019 to 2022, nominal wage growth accelerated, but inflation accelerated almost as much. As a result, the gain in real purchasing power was very small. This period shows why rapidly rising nominal wages can feel less impressive when prices are rising nearly as quickly.\nFrom 2022 to 2025, wages once again grew faster than prices. Real wage growth therefore became positive again, helping purchasing power recover from the inflation-heavy period immediately before it."
+  },
+  {
+    "objectID": "blog/posts/post4/index.html#so-are-americans-better-off",
+    "href": "blog/posts/post4/index.html#so-are-americans-better-off",
+    "title": "Are Americans Actually Better Off Than 10 Years Ago?",
+    "section": "So, Are Americans Better Off?",
+    "text": "So, Are Americans Better Off?\nBased on this metric, the answer is yes, but to a limited extent.\nOver the past decade, average hourly wages in the private sector have grown faster than consumer prices, so real hourly purchasing power in 2025 is slightly higher than in 2015. However, this improvement is far smaller than what the growth in nominal wages would suggest.\nThis analysis also has limitations. “Improved living standards” may involve housing costs, wealth, healthcare, taxes, job security, and many other factors, none of which are reflected in average hourly wages or the CPI."
   }
 ]
