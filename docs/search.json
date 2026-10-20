@@ -46,7 +46,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Who Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nHow Does Unemployment Vary by Education?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nAre Americans Actually Better Off Than 10 Years Ago?\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Where Are Major Reported Crimes Concentrated in Boston?\n\n\nA neighborhood-level look at major reported crime in 2025\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nWho Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nHow Does Unemployment Vary by Education?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nAre Americans Actually Better Off Than 10 Years Ago?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post1/Untitled.html",
@@ -257,5 +257,89 @@
     "title": "Are Americans Actually Better Off Than 10 Years Ago?",
     "section": "So, Are Americans Better Off?",
     "text": "So, Are Americans Better Off?\nBased on this metric, the answer is yes, but to a limited extent.\nOver the past decade, average hourly wages in the private sector have grown faster than consumer prices, so real hourly purchasing power in 2025 is slightly higher than in 2015. However, this improvement is far smaller than what the growth in nominal wages would suggest.\nThis analysis also has limitations. “Improved living standards” may involve housing costs, wealth, healthcare, taxes, job security, and many other factors, none of which are reflected in average hourly wages or the CPI."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html",
+    "href": "blog/posts/post5/index.html",
+    "title": "Where Are Major Reported Crimes Concentrated in Boston?",
+    "section": "",
+    "text": "Crime is often discussed as if a single number can tell us whether one neighborhood is safer than another. But the answer can change depending on what we measure. A neighborhood may have a large number of reported crimes simply because more people live there, while a smaller neighborhood may have fewer crimes overall but a much higher rate relative to its population.\nUsing Boston Police Department data and Boston neighborhood GIS data, I examine a simple question: Where are major reported crimes concentrated in Boston in 2025, and does the geographic pattern change after adjusting for population?\nThe analysis focuses on major reported crime categories such as larceny, aggravated assault, robbery, burglary, auto theft, and homicide."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#the-number-of-incidents-varies-sharply-across-boston",
+    "href": "blog/posts/post5/index.html#the-number-of-incidents-varies-sharply-across-boston",
+    "title": "Where Are Police Incidents Concentrated in Boston?",
+    "section": "The number of incidents varies sharply across Boston",
+    "text": "The number of incidents varies sharply across Boston\n\n\n\nReported police incidents across Boston neighborhoods in 2025.\n\n\nThe first map shows the total number of unique reported police incidents in each Boston neighborhood. The geographic pattern is clearly uneven. Some areas have far more recorded incidents, while others account for a relatively small share of total police activity.\nHowever, this map has an important limitation: it shows counts, not rates.\nNeighborhoods differ greatly in population size. A neighborhood with many residents can have a high number of incidents simply because more people live there. To make the comparison more meaningful, we need to adjust for population."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#adjusting-for-population-changes-the-picture",
+    "href": "blog/posts/post5/index.html#adjusting-for-population-changes-the-picture",
+    "title": "Where Are Police Incidents Concentrated in Boston?",
+    "section": "Adjusting for population changes the picture",
+    "text": "Adjusting for population changes the picture\n\n\n\nReported police incidents per 1,000 residents across Boston neighborhoods.\n\n\nThe second map reports incidents per 1,000 residents instead of total incidents.\nThe spatial pattern is noticeably different. Some neighborhoods that appeared especially prominent in the first map become less extreme after population is taken into account, while other areas stand out more.\nThis comparison shows why the choice of measure matters. Total incidents tell us where the largest amount of police activity occurs, while incidents per 1,000 residents tell us where that activity is high relative to the number of people who live there.\nNeither measure is automatically “better.” They answer different questions."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#not-every-police-incident-is-a-violent-crime",
+    "href": "blog/posts/post5/index.html#not-every-police-incident-is-a-violent-crime",
+    "title": "Where Are Police Incidents Concentrated in Boston?",
+    "section": "Not every police incident is a violent crime",
+    "text": "Not every police incident is a violent crime\n\n\n\nThe ten most common police incident types in Boston in 2025.\n\n\nThe incident categories also reveal something important about the dataset.\nThe most common record is MV Crash Response, followed by Investigate Person and Medical Assistance. Other common incidents include Other Larceny, Verbal Disputes, Simple Assault, and Vandalism.\nThis means it would be misleading to treat every observation in the dataset as a traditional crime. Boston police records include traffic crashes, medical calls, investigations, towing, disputes, and other police responses in addition to criminal offenses.\nFor this reason, it is more accurate to describe the data as reported police incidents rather than simply “crime.”"
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#police-activity-also-changes-over-the-year",
+    "href": "blog/posts/post5/index.html#police-activity-also-changes-over-the-year",
+    "title": "Where Are Police Incidents Concentrated in Boston?",
+    "section": "Police activity also changes over the year",
+    "text": "Police activity also changes over the year\n\n\n\nMonthly number of unique reported police incidents in Boston during 2025.\n\n\nReported incidents are not constant throughout the year either.\nMonthly totals are relatively low in February and September, while activity rises during the summer and reaches its highest level in October. The month-to-month movements are large enough to show that police activity can change considerably even within a single year.\nStill, one year is not enough to establish a permanent seasonal pattern. For example, the October peak could reflect events specific to 2025 rather than something that happens every October. Several years of data would be needed before making a stronger claim about seasonality."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#the-map-depends-on-what-we-measure",
+    "href": "blog/posts/post5/index.html#the-map-depends-on-what-we-measure",
+    "title": "Where Are Police Incidents Concentrated in Boston?",
+    "section": "The map depends on what we measure",
+    "text": "The map depends on what we measure\nThe main lesson from these data is not simply that some Boston neighborhoods are “more dangerous” than others.\nThe story changes depending on the measure being used. Raw counts show where the largest number of police incidents occur, while population-adjusted rates provide a different view of how concentrated those incidents are among residents.\nThe type of incident matters as well. A large share of police records involve crashes, medical assistance, investigations, and other responses that should not automatically be interpreted as serious crime.\nSpatial data therefore provide a more useful picture when they are combined with careful definitions and appropriate normalization. A darker area on a map does not mean much until we understand exactly what is being counted and what we are comparing it to."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#data-and-methodology",
+    "href": "blog/posts/post5/index.html#data-and-methodology",
+    "title": "Where Are Major Reported Crimes Concentrated in Boston?",
+    "section": "Data and methodology",
+    "text": "Data and methodology\nCrime records come from Boston Police Department public data for 2025. This analysis keeps only the major crime categories used for the project, rather than treating every police response as a crime. Duplicate incident numbers are removed when calculating neighborhood and monthly totals.\nNeighborhood boundaries and population estimates come from Boston GIS data. The population-adjusted measure is calculated as:\n\\[\n\\text{Crime Rate per 1,000}\n=\n\\frac{\\text{Unique Major Reported Crime Incidents}}\n{\\text{Neighborhood Population}}\n\\times 1000\n\\]"
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#a-few-neighborhoods-account-for-a-large-share-of-reported-crime",
+    "href": "blog/posts/post5/index.html#a-few-neighborhoods-account-for-a-large-share-of-reported-crime",
+    "title": "Where Are Major Reported Crimes Concentrated in Boston?",
+    "section": "A few neighborhoods account for a large share of reported crime",
+    "text": "A few neighborhoods account for a large share of reported crime\n\n\n\nMajor reported crimes across Boston neighborhoods in 2025.\n\n\nThe first map shows the total number of unique major reported crime incidents in each Boston neighborhood.\nThe pattern is clearly uneven. A small number of neighborhoods stand out with substantially higher crime counts, while many other areas record much lower totals. This suggests that major reported crime is geographically concentrated rather than evenly distributed across the city.\nHowever, this map does not necessarily tell us which neighborhoods have the highest level of crime relative to the people who live there. Larger neighborhoods may naturally generate more incidents simply because they contain more residents.\nThat makes population adjustment important."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#adjusting-for-population-changes-the-map",
+    "href": "blog/posts/post5/index.html#adjusting-for-population-changes-the-map",
+    "title": "Where Are Major Reported Crimes Concentrated in Boston?",
+    "section": "Adjusting for population changes the map",
+    "text": "Adjusting for population changes the map\n\n\n\nMajor reported crimes per 1,000 residents across Boston neighborhoods.\n\n\nThe second map measures unique major reported crime incidents per 1,000 residents.\nOnce population is taken into account, the spatial pattern changes noticeably. Some neighborhoods that looked especially important in the count map become less extreme, while several smaller areas become much more prominent.\nThis difference highlights an important point: crime counts and crime rates answer different questions.\nThe count map shows where the largest number of crimes are reported. The rate map instead asks how large that number is relative to the neighborhood population.\nThe rate measure also has limitations. Neighborhood population is based on residents, while some parts of Boston attract commuters, students, tourists, and other non-residents. A neighborhood with a small residential population but heavy daily activity may therefore appear unusually high on a per-resident measure."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#larceny-dominates-the-major-crime-categories",
+    "href": "blog/posts/post5/index.html#larceny-dominates-the-major-crime-categories",
+    "title": "Where Are Major Reported Crimes Concentrated in Boston?",
+    "section": "Larceny dominates the major crime categories",
+    "text": "Larceny dominates the major crime categories\n\n\n\nMajor reported crime types in Boston in 2025.\n\n\nThe composition of reported crime also matters.\nOther Larceny is by far the most frequently reported major crime category in the data. It is followed by Aggravated Assault and Larceny From a Vehicle. Auto theft, robbery, residential burglary, and commercial burglary occur less frequently, while homicide represents only a very small share of the total.\nThis means the geographic crime pattern should not automatically be interpreted as a map of violent crime. Much of the major reported crime in Boston comes from property-related offenses, especially larceny.\nIn other words, asking what kind of crime is being reported is just as important as asking where crime is being reported."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#major-reported-crime-is-higher-in-the-warmer-months",
+    "href": "blog/posts/post5/index.html#major-reported-crime-is-higher-in-the-warmer-months",
+    "title": "Where Are Major Reported Crimes Concentrated in Boston?",
+    "section": "Major reported crime is higher in the warmer months",
+    "text": "Major reported crime is higher in the warmer months\n\n\n\nMonthly major reported crime incidents in Boston during 2025.\n\n\nReported crime also varies over the year.\nCrime is relatively low at the beginning of the year, with February showing the lowest monthly level. Reports rise through the spring and early summer, with high levels in July and August. Crime falls sharply in September before rising again in October and then declining toward the end of the year.\nThis pattern suggests some seasonality, but one year of data is not enough to establish a permanent seasonal relationship. A longer time series would be needed to determine whether these monthly peaks appear consistently across years."
+  },
+  {
+    "objectID": "blog/posts/post5/index.html#takeaway-the-measure-changes-the-story",
+    "href": "blog/posts/post5/index.html#takeaway-the-measure-changes-the-story",
+    "title": "Where Are Major Reported Crimes Concentrated in Boston?",
+    "section": "Takeaway: the measure changes the story",
+    "text": "Takeaway: the measure changes the story\nThe main takeaway is that major reported crime is not evenly distributed across Boston, but the geographic story depends on how crime is measured.\nRaw counts highlight the neighborhoods with the largest number of reported crimes, while per-capita rates can shift attention toward smaller neighborhoods. The crime-type data also show that the majority of major reported offenses are not the most serious violent crimes; property-related crime, especially larceny, makes up a large part of the total.\nGIS therefore adds something that a citywide crime total cannot show. It reveals where crime is concentrated and, more importantly, shows why comparing neighborhoods requires both geographic context and an appropriate denominator."
   }
 ]

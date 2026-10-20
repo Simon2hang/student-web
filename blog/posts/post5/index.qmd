@@ -1,0 +1,82 @@
+---
+title: "Where Are Major Reported Crimes Concentrated in Boston?"
+subtitle: "A neighborhood-level look at major reported crime in 2025"
+author: "Simon Zhang"
+format: html
+---
+
+Crime is often discussed as if a single number can tell us whether one neighborhood is safer than another. But the answer can change depending on what we measure. A neighborhood may have a large number of reported crimes simply because more people live there, while a smaller neighborhood may have fewer crimes overall but a much higher rate relative to its population.
+
+Using Boston Police Department data and Boston neighborhood GIS data, I examine a simple question: **Where are major reported crimes concentrated in Boston in 2025, and does the geographic pattern change after adjusting for population?**
+
+The analysis focuses on major reported crime categories such as larceny, aggravated assault, robbery, burglary, auto theft, and homicide.
+
+## A few neighborhoods account for a large share of reported crime
+
+![Major reported crimes across Boston neighborhoods in 2025.](figures/major_crime_count_by_neighborhood.png)
+
+The first map shows the total number of unique major reported crime incidents in each Boston neighborhood.
+
+The pattern is clearly uneven. A small number of neighborhoods stand out with substantially higher crime counts, while many other areas record much lower totals. This suggests that major reported crime is geographically concentrated rather than evenly distributed across the city.
+
+However, this map does not necessarily tell us which neighborhoods have the highest level of crime relative to the people who live there. Larger neighborhoods may naturally generate more incidents simply because they contain more residents.
+
+That makes population adjustment important.
+
+## Adjusting for population changes the map
+
+![Major reported crimes per 1,000 residents across Boston neighborhoods.](figures/major_crime_rate_by_neighborhood.png)
+
+The second map measures **unique major reported crime incidents per 1,000 residents**.
+
+Once population is taken into account, the spatial pattern changes noticeably. Some neighborhoods that looked especially important in the count map become less extreme, while several smaller areas become much more prominent.
+
+This difference highlights an important point: **crime counts and crime rates answer different questions.**
+
+The count map shows where the largest number of crimes are reported. The rate map instead asks how large that number is relative to the neighborhood population.
+
+The rate measure also has limitations. Neighborhood population is based on residents, while some parts of Boston attract commuters, students, tourists, and other non-residents. A neighborhood with a small residential population but heavy daily activity may therefore appear unusually high on a per-resident measure.
+
+## Larceny dominates the major crime categories
+
+![Major reported crime types in Boston in 2025.](figures/major_crime_types.png)
+
+The composition of reported crime also matters.
+
+**Other Larceny** is by far the most frequently reported major crime category in the data. It is followed by **Aggravated Assault** and **Larceny From a Vehicle**. Auto theft, robbery, residential burglary, and commercial burglary occur less frequently, while homicide represents only a very small share of the total.
+
+This means the geographic crime pattern should not automatically be interpreted as a map of violent crime. Much of the major reported crime in Boston comes from property-related offenses, especially larceny.
+
+In other words, asking *what kind of crime is being reported* is just as important as asking *where crime is being reported*.
+
+## Major reported crime is higher in the warmer months
+
+![Monthly major reported crime incidents in Boston during 2025.](figures/major_crime_by_month.png)
+
+Reported crime also varies over the year.
+
+Crime is relatively low at the beginning of the year, with **February** showing the lowest monthly level. Reports rise through the spring and early summer, with high levels in **July and August**. Crime falls sharply in September before rising again in October and then declining toward the end of the year.
+
+This pattern suggests some seasonality, but one year of data is not enough to establish a permanent seasonal relationship. A longer time series would be needed to determine whether these monthly peaks appear consistently across years.
+
+## Takeaway: the measure changes the story
+
+The main takeaway is that **major reported crime is not evenly distributed across Boston, but the geographic story depends on how crime is measured**.
+
+Raw counts highlight the neighborhoods with the largest number of reported crimes, while per-capita rates can shift attention toward smaller neighborhoods. The crime-type data also show that the majority of major reported offenses are not the most serious violent crimes; property-related crime, especially larceny, makes up a large part of the total.
+
+GIS therefore adds something that a citywide crime total cannot show. It reveals where crime is concentrated and, more importantly, shows why comparing neighborhoods requires both geographic context and an appropriate denominator.
+
+## Data and methodology
+
+Crime records come from Boston Police Department public data for 2025. This analysis keeps only the major crime categories used for the project, rather than treating every police response as a crime. Duplicate incident numbers are removed when calculating neighborhood and monthly totals.
+
+Neighborhood boundaries and population estimates come from Boston GIS data. The population-adjusted measure is calculated as:
+
+$$
+\text{Crime Rate per 1,000}
+=
+\frac{\text{Unique Major Reported Crime Incidents}}
+{\text{Neighborhood Population}}
+\times 1000
+$$
