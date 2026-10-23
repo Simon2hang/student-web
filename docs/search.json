@@ -46,7 +46,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Where Are Major Reported Crimes Concentrated in Boston?\n\n\nA neighborhood-level look at major reported crime in 2025\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nWho Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nHow Does Unemployment Vary by Education?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nAre Americans Actually Better Off Than 10 Years Ago?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\nNo matching items"
+    "text": "Where Are Major Reported Crimes Concentrated in Boston?\n\n\nA neighborhood-level look at major reported crime in 2025\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nWho Had the Biggest Impact in the 2025–26 NBA Season?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nHow Does Unemployment Vary by Education?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nAre Americans Actually Better Off Than 10 Years Ago?\n\n\n\n\n\n\n\n\n\n\n\nSimon Zhang\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the Law of Large Numbers\n\n\n\n\n\n\n\n\n\n\n\nSep 12, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nMatching Parents and Children with SQL: Measuring Intergenerational Income Mobility\n\n\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nSimon Zhang\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/post1/Untitled.html",
@@ -341,5 +341,68 @@
     "title": "Where Are Major Reported Crimes Concentrated in Boston?",
     "section": "Takeaway: the measure changes the story",
     "text": "Takeaway: the measure changes the story\nThe main takeaway is that major reported crime is not evenly distributed across Boston, but the geographic story depends on how crime is measured.\nRaw counts highlight the neighborhoods with the largest number of reported crimes, while per-capita rates can shift attention toward smaller neighborhoods. The crime-type data also show that the majority of major reported offenses are not the most serious violent crimes; property-related crime, especially larceny, makes up a large part of the total.\nGIS therefore adds something that a citywide crime total cannot show. It reveals where crime is concentrated and, more importantly, shows why comparing neighborhoods requires both geographic context and an appropriate denominator."
+  },
+  {
+    "objectID": "blog/posts/post6/index.html",
+    "href": "blog/posts/post6/index.html",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "",
+    "text": "Intergenerational income mobility asks a simple but important question: how strongly is a child’s economic status related to the economic status of their parents?\nAnswering this question is not as easy as running one regression. Before estimating anything, we first need to identify which people are parents and children, connect them across different years, and construct meaningful measures of income.\nIn this tutorial, I use data from the Panel Study of Income Dynamics (PSID) and combine Python with SQL to build parent-child matches and estimate an intergenerational elasticity (IGE).\nThe main question is:\n\nDoes the estimated relationship between parent and child income change when income is measured using one year instead of several years?"
+  },
+  {
+    "objectID": "blog/posts/post6/index.html#how-much-does-parents-income-predict-their-childrens-income",
+    "href": "blog/posts/post6/index.html#how-much-does-parents-income-predict-their-childrens-income",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "",
+    "text": "Intergenerational income mobility asks a simple but important question: how strongly is a child’s economic status related to the economic status of their parents?\nAnswering this question is not as easy as running one regression. Before estimating anything, we first need to identify which people are parents and children, connect them across different years, and construct meaningful measures of income.\nIn this tutorial, I use data from the Panel Study of Income Dynamics (PSID) and combine Python with SQL to build parent-child matches and estimate an intergenerational elasticity (IGE).\nThe main question is:\n\nDoes the estimated relationship between parent and child income change when income is measured using one year instead of several years?"
+  },
+  {
+    "objectID": "blog/posts/post6/index.html#matching-parents-and-children-with-sql",
+    "href": "blog/posts/post6/index.html#matching-parents-and-children-with-sql",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "Matching Parents and Children with SQL",
+    "text": "Matching Parents and Children with SQL\nThe PSID follows individuals and families over time. The Parent Identification File provides links between children and their biological parents, while the Individual File provides stable person identifiers and family identifiers for each interview year.\nSQL is useful because the information needed for this analysis is stored across several related tables.\nFour SQL operations are especially important:\n\nSELECT chooses the variables needed for the analysis.\nJOIN connects parent, child, individual, and income records.\nGROUP BY combines multiple records belonging to the same child.\nAggregation functions such as SUM() and AVG() create parental income and multi-year income measures.\n\nA simplified version of the matching process looks like this:\nSELECT\n    p.child_id,\n    p.parent_id,\n    c.personal_labor_income AS child_income,\n    r.personal_labor_income AS parent_income\n\nFROM parent_pairs AS p\n\nJOIN person_year_income AS c\n    ON p.child_id = c.person_id\n\nJOIN person_year_income AS r\n    ON p.parent_id = r.person_id\n    AND c.income_year = r.income_year\nOne important issue is that family income cannot simply be assigned to every member of the household.\nUsing the PSID sequence and relationship variables, I identify whether an individual is the family Reference Person or Spouse/Partner. The corresponding labor income is then assigned only to that person.\nThis prevents children who still live with their parents from incorrectly receiving their parents’ labor income as their own."
+  },
+  {
+    "objectID": "blog/posts/post6/index.html#measuring-intergenerational-elasticity",
+    "href": "blog/posts/post6/index.html#measuring-intergenerational-elasticity",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "Measuring Intergenerational Elasticity",
+    "text": "Measuring Intergenerational Elasticity\nAfter constructing the matched parent-child sample, I estimate the following regression:\n\\[\n\\log(Y_{child})\n=\n\\alpha\n+\n\\beta \\log(Y_{parent})\n+\n\\epsilon\n\\]\nThe coefficient \\(\\beta\\) is the intergenerational elasticity, or IGE.\nA larger IGE means that parental income is more strongly related to children’s income, suggesting stronger persistence of economic status across generations.\nFor example, an IGE of 0.20 means that a 10% higher parental income is associated with approximately a 2% higher child income."
+  },
+  {
+    "objectID": "blog/posts/post6/index.html#what-does-one-year-of-income-show",
+    "href": "blog/posts/post6/index.html#what-does-one-year-of-income-show",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "What Does One Year of Income Show?",
+    "text": "What Does One Year of Income Show?\nFor the single-year analysis, I use 2022 labor income and restrict the sample to adult children between ages 25 and 55.\n\n\n\n\n\nFigure 1. Parent and child labor income in 2022. Both income measures are shown in logs.\n\n\n\n\nThe scatterplot shows a positive relationship between parent and child income, although the regression line is relatively flat.\nUsing only 2022 income, the estimated IGE is:\n\\[\n\\hat{\\beta}_{single} = 0.078\n\\]\nThe 95% confidence interval is approximately:\n\\[\n[0.043,\\ 0.113]\n\\]\nThe sample contains 1,751 matched adult children.\nAn IGE of 0.078 means that a 10% increase in parental labor income is associated with approximately a 0.78% increase in child labor income.\nHowever, one year of income may be a noisy measure of someone’s true long-run economic position.\nA person might temporarily earn less because of unemployment, reduced working hours, school, family responsibilities, or another short-term shock. Someone could also temporarily earn more than usual."
+  },
+  {
+    "objectID": "blog/posts/post6/index.html#averaging-income-across-several-years",
+    "href": "blog/posts/post6/index.html#averaging-income-across-several-years",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "Averaging Income Across Several Years",
+    "text": "Averaging Income Across Several Years\nTo reduce temporary fluctuations, I also construct a multi-year income measure using income from 2016, 2018, 2020, and 2022.\nBecause prices changed over this period, income from each year is first converted into 2022 dollars before calculating the average.\nThe inflation adjustment is:\n\\[\nY_t^{2022\\$}\n=\nY_t\n\\times\n\\frac{CPI_{2022}}{CPI_t}\n\\]\nI then calculate average parent and child income using at least three valid income observations.\n\n\n\n\n\nFigure 2. Estimated IGE using single-year and multi-year income measures. Error bars show 95% confidence intervals.\n\n\n\n\nThe difference between the two estimates is substantial.\nUsing single-year income:\n\\[\nIGE = 0.078\n\\]\nUsing multi-year average income:\n\\[\nIGE = 0.142\n\\]\nThe multi-year estimate is about 82% larger than the single-year estimate.\nThe \\(R^2\\) also increases from approximately 0.011 in the single-year regression to 0.039 in the multi-year regression.\nThis suggests that averaging income over several years removes some temporary income noise and gives a more stable measure of long-run economic status."
+  },
+  {
+    "objectID": "blog/posts/post6/index.html#life-cycle-bias",
+    "href": "blog/posts/post6/index.html#life-cycle-bias",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "Life-Cycle Bias",
+    "text": "Life-Cycle Bias\nAnother problem with measuring income in only one year is life-cycle bias.\nA person’s current income may not represent their permanent income equally well at every age. Younger workers may still be early in their careers, while income later in life may be affected by changes in working hours, retirement decisions, or other factors.\nTo see whether this matters, I estimate the single-year IGE separately across different child age groups.\n\n\n\n\n\nFigure 3. Single-year IGE estimates across child age groups. The dashed line represents the multi-year IGE.\n\n\n\n\nThe estimates vary substantially across age groups:\n\n\n\nChild Age\nSingle-Year IGE\n\n\n\n\n25–29\n0.210\n\n\n30–34\n0.192\n\n\n35–39\n0.070\n\n\n40–44\n0.033\n\n\n45–55\n-0.027\n\n\n\nThe most important point is not that income mobility necessarily increases as people become older.\nInstead, the results show that the estimated IGE is highly sensitive to the age at which children’s income is measured.\nFor children ages 25–29, the estimate is around 0.21. For children ages 40–44, it is close to zero, and for ages 45–55 the point estimate is slightly negative.\nIf income measured in one year perfectly represented permanent economic status, the estimated relationship should not change this much simply because income is observed at a different stage of the life cycle.\nThis instability provides evidence of life-cycle bias."
+  },
+  {
+    "objectID": "blog/posts/post6/index.html#data-and-methodology",
+    "href": "blog/posts/post6/index.html#data-and-methodology",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "Data and Methodology",
+    "text": "Data and Methodology\nThe data come from the Panel Study of Income Dynamics (PSID).\nThree main PSID data sources are used:\n\nThe Parent Identification File, which identifies biological parent-child relationships.\nThe Individual File, which provides stable individual identifiers, family identifiers, age, sequence numbers, and relationships to the family Reference Person.\nFamily income data containing labor income for the Reference Person and Spouse/Partner.\n\nPython is used inside RStudio to process the data, while SQLite is used to perform the parent-child matching.\nThe SQL analysis uses SELECT, JOIN, GROUP BY, SUM(), and AVG() to construct the matched sample and income measures.\nObservations with zero or negative income are excluded because the IGE regression uses the logarithm of income.\nThe single-year analysis uses children ages 25 to 55. The multi-year analysis requires at least three valid income observations from 2016, 2018, 2020, and 2022."
+  },
+  {
+    "objectID": "blog/posts/post6/index.html#takeaway",
+    "href": "blog/posts/post6/index.html#takeaway",
+    "title": "Matching Parents and Children with SQL: Measuring Intergenerational Income Mobility",
+    "section": "Takeaway",
+    "text": "Takeaway\nThe main takeaway is that how income is measured has a large effect on estimates of intergenerational income persistence.\nUsing only 2022 income produces an IGE of 0.078, while averaging inflation-adjusted income across several years produces a substantially larger estimate of 0.142.\nThe age-group results also show that the single-year IGE changes considerably depending on when in the child’s life cycle income is measured.\nSQL makes it possible to correctly connect parents, children, families, and income records in a complex longitudinal dataset such as the PSID. However, correctly matching people is only the first step.\nFor studying long-run economic mobility, multi-year average income provides a more stable measure of economic status than income observed in a single year."
   }
 ]
