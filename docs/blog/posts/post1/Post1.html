@@ -184,47 +184,80 @@ window.Quarto = {
 
 
 <p><img src="lln.png" class="img-fluid"></p>
-<p>Let’s imagine a scenario in which a person flips a fair coin ten times, and, by chance, it lands heads eight times. Since the probability of a fair coin landing heads is 50%, an 80% heads rate seems somewhat illogical. This raises a classic question: If we continue flipping the coin, should we expect a string of tails to “make up” for these extra heads?</p>
-<p>This question both illustrates the intuition behind the <strong>Law of Large Numbers</strong> and reveals one of the most common misunderstandings about it.</p>
-<p>The law of large numbers states that, under appropriate conditions, as the number of observations increases, the average of the results from multiple observations will approach the expected value. For a fair coin, the expected proportion of heads is 0.5. However, if the coin is flipped only a few times, the observed proportion may deviate significantly from 0.5. As the number of flips increases, this proportion typically becomes more stable.</p>
-<p>Mathematically, if we observe values (X_1, X_2…X_n), their sample average is</p>
+<p>Suppose we flip a fair coin ten times and get eight heads. The observed proportion of heads is now 80%, even though we know the true probability is only 50%.</p>
+<p>What happens if we keep flipping?</p>
+<p>A common intuition is that tails should now become more likely in order to “balance out” the earlier heads. But that cannot be right. If the coin is fair and each flip is independent, the probability of heads on the next flip is still exactly 50%.</p>
+<p>So the more interesting question is:</p>
+<blockquote class="blockquote">
+<p><strong>If future flips do not correct the past, why does the sample average become more stable as we collect more data?</strong></p>
+</blockquote>
+<p>This is the intuition behind the <strong>Law of Large Numbers (LLN)</strong>.</p>
+<section id="what-does-the-law-of-large-numbers-say" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-the-law-of-large-numbers-say">What Does the Law of Large Numbers Say?</h2>
+<p>The Law of Large Numbers says that, under appropriate conditions, the sample average gets closer to the expected value as the number of observations becomes large.</p>
+<p>If we observe values (X_1, X_2, …, X_n), their sample average is</p>
 <p><span class="math display">\[
 \bar{X}_n = \frac{1}{n}\sum_{i=1}^{n}X_i.
 \]</span></p>
-<p>The Law of Large Numbers tells that, as (n) becomes larger and larger,</p>
+<p>As (n) becomes large,</p>
 <p><span class="math display">\[
 \bar{X}_n \rightarrow E[X],
 \]</span></p>
-<p>where (E[X]) is the expected value of the underlying random variable.</p>
-<p>For a coin flip, we can define heads as 1 and tails as 0. For a fair coin,</p>
+<p>where (E[X]) is the expected value of the random variable.</p>
+<p>For a fair coin, define heads as 1 and tails as 0. Then</p>
 <p><span class="math display">\[
 E[X] = 0.5.
 \]</span></p>
-<p>So if we flip the coin again and again, the average of these zeros and ones tends to move toward 0.5.</p>
-<section id="why-is-this-unintuitive" class="level2">
-<h2 class="anchored" data-anchor-id="why-is-this-unintuitive">Why Is This Unintuitive?</h2>
-<p>Surprisingly, the law of large numbers <strong>does not</strong> imply that random outcomes will actively correct themselves.</p>
-<p>Suppose that eight out of the first ten coin flips result in heads. Most people’s common reaction might be to think that the probability of getting tails must now be higher so that the overall ratio can return to 50%. This is actually a classic example of a fallacy.</p>
-<p>If the coin tosses are independent of one another, then the probability of getting heads on the eleventh toss is still exactly 50%. The coin does not “remember” what happened before.</p>
-<p>So, how does the average eventually converge toward 50%?</p>
-<p>The answer is not “correction,” but <strong>dilution</strong>.</p>
-<p>After ten tosses, the first ten observations make up the entire sample. After 1,000 tosses, these first ten observations account for only 1% of the sample; after 10,000 tosses, they account for only 0.1%. The initial anomaly hasn’t disappeared, but its impact on the overall average becomes increasingly small.</p>
-<p>In other words, the law of large numbers holds true because, as the number of observations increases, the influence of early random fluctuations becomes increasingly negligible.</p>
+<p>This means that as we flip the coin many times, the proportion of heads tends to become closer to 0.5.</p>
+<p>Importantly, this does <strong>not</strong> mean that the next few flips must be tails.</p>
+</section>
+<section id="convergence-comes-from-dilution-not-correction" class="level2">
+<h2 class="anchored" data-anchor-id="convergence-comes-from-dilution-not-correction">Convergence Comes From Dilution, Not Correction</h2>
+<p>Return to the example where eight of the first ten flips are heads.</p>
+<p>Suppose the next 90 flips contain 45 heads and 45 tails. Nothing unusual happened in those 90 flips—the coin simply behaved close to its expected 50% rate.</p>
+<p>After 100 total flips, we would have</p>
+<p><span class="math display">\[
+\frac{8+45}{100}=0.53.
+\]</span></p>
+<p>The proportion has already fallen from 80% to 53%, even though the coin never tried to “correct” the earlier outcome.</p>
+<p>This happens because the first ten flips become a smaller part of the total sample.</p>
+<p>After 10 flips, they represent 100% of the data. After 100 flips, they represent only 10%. After 1,000 flips, they represent only 1%.</p>
+<p>The unusual beginning is still there, but its influence becomes smaller and smaller.</p>
+<p>This gives a useful way to understand the LLN:</p>
+<blockquote class="blockquote">
+<p><strong>Large samples do not erase early randomness. They dilute its effect.</strong></p>
+</blockquote>
+</section>
+<section id="why-does-this-matter-for-real-data" class="level2">
+<h2 class="anchored" data-anchor-id="why-does-this-matter-for-real-data">Why Does This Matter for Real Data?</h2>
+<p>This same idea explains why sample averages are so important in economics and data analysis.</p>
+<p>Suppose we want to estimate the average wage of workers. If we survey only 20 people, a few unusually high or low earners could change the sample mean substantially. With a much larger sample, each individual observation has less influence, so random variation tends to matter less.</p>
+<p>The same logic applies when estimating quantities such as unemployment, household spending, or average income.</p>
+<p>However, the Law of Large Numbers does <strong>not</strong> mean that simply collecting more observations automatically gives us the truth.</p>
+<p>Imagine surveying 100,000 people about income, but only selecting people from wealthy neighborhoods. The sample mean may be extremely stable, but it can still be a poor estimate of average income for the entire population.</p>
+<p>So there are really two different issues:</p>
+<ul>
+<li><strong>Random variation:</strong> larger samples usually help reduce its influence.</li>
+<li><strong>Systematic bias:</strong> larger samples do not automatically fix it.</li>
+</ul>
+<p>This is an important distinction. More data can make an estimate more precise, but the data still need to represent the population we are trying to study.</p>
 </section>
 <section id="more-data-does-not-mean-perfect-data" class="level2">
 <h2 class="anchored" data-anchor-id="more-data-does-not-mean-perfect-data">More Data Does Not Mean Perfect Data</h2>
-<p>Another common misconception is that a large sample size will always yield results that perfectly match the expected value. However, the law does not guarantee this.</p>
-<p>Even if you flip a coin thousands of times, the proportion of heads might be 49.7% or 50.4%, rather than exactly 50%. Random fluctuations still occur. The key point is that as the sample size increases, the frequency of large deviations decreases.</p>
-<p>The importance of this concept extends far beyond coin flipping. Economists use sample means to estimate wages, unemployment rates, consumer spending, and many other indicators. A survey of 20 people may be strongly influenced by a few outliers. Larger, representative samples are typically more stable because individual random variations have less impact on the population mean.</p>
-<p>This is also why collecting more data improves statistical estimates. More observations do not eliminate randomness, but they reduce the impact of random fluctuations in any small portion of the sample.</p>
+<p>Even with a fair coin, a large sample will not usually produce exactly 50% heads.</p>
+<p>After thousands of flips, we might observe 49.7% or 50.4%. Randomness is still present. The difference is that very large deviations become less common as the sample grows.</p>
+<p>Therefore, the Law of Large Numbers should not be understood as a promise that the data will eventually become perfect. Instead, it explains why averages calculated from sufficiently large and appropriate samples tend to become more stable.</p>
 </section>
-<section id="key-points-summary" class="level2">
-<h2 class="anchored" data-anchor-id="key-points-summary">Key Points Summary</h2>
-<p>The Law of Large Numbers does not mean that luck “balances itself out” by compensating for past results with future ones. Rather, it states that as more independent observations accumulate, the proportion of early outliers in the overall mean becomes increasingly small.</p>
-<p>A practical way to remember this concept is:</p>
-<p><strong>Large numbers do not correct for randomness—they merely dilute it.</strong></p>
-<p>It is precisely this distinction that makes the Law of Large Numbers both powerful and prone to misunderstanding.</p>
-<hr>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>The Law of Large Numbers is sometimes misunderstood as saying that random outcomes eventually “balance themselves out.”</p>
+<p>That is not what happens.</p>
+<p>Each new coin flip is still independent, and the probability of heads remains 50% regardless of what happened before. The sample average moves toward 50% because early random outcomes receive less and less weight as more observations are added.</p>
+<p>For real-world data, the same logic explains why larger samples can produce more stable estimates. But sample size alone is not enough: <strong>more data reduces random noise, not systematic bias</strong>.</p>
+<p>A simple way to remember the main idea is:</p>
+<blockquote class="blockquote">
+<p><strong>Large numbers do not correct randomness—they dilute its influence.</strong></p>
+</blockquote>
 
 
 </section>
