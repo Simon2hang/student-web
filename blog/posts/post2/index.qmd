@@ -1,7 +1,6 @@
 ---
 title: "Who Had the Biggest Impact in the 2025–26 NBA Season?"
 author: "Simon Zhang"
-date: "`r Sys.Date()`"
 output:
   html_document:
     toc: true
