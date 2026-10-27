@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Simon Zhang">
+<meta name="dcterms.date" content="2026-10-26">
 
 <title>Who Had the Biggest Impact in the 2025–26 NBA Season? – Simon Zhang</title>
 <style>
@@ -72,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -140,6 +170,12 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 26, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -149,42 +185,132 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Basketball fans often judge players first and foremost by one statistic: points per game. While scoring is certainly important, it doesn’t fully reflect a player’s contribution. Players can add value through passing, rebounding, efficient shooting, defense, and simply helping their team perform better on the court.</p>
-<p>This has sparked my interest in a broader question: Which players had the greatest overall impact during the 2025–26 NBA regular season?</p>
-<section id="data-collection" class="level2">
-<h2 class="anchored" data-anchor-id="data-collection">Data Collection</h2>
-<p>I used the <code>rvest</code> package in R to collect player statistics from the Basketball-Reference website. I scraped two publicly available data tables: one containing traditional per-game statistics and the other containing advanced statistics.</p>
-<p>The traditional data includes points per game, rebounds, assists, steals, and blocks. The advanced dataset contains metrics such as True Shooting Percentage (TS%), Box Plus/Minus (BPM), Win Shares, and Value Over Replacement Player (VORP).</p>
-<p>To keep the scraping process lightweight, I requested only the two pages of data needed for the analysis and inserted a brief delay between each request. Before performing any data cleaning, I saved the original tables so that I could reproduce the analysis results based on the raw scraped data.</p>
-<p>After the scraping was complete, I removed the summary rows, converted relevant variables to numerical formats, handled players who had played for multiple teams, and merged the traditional and advanced data sets. I then limited the sample to players who had appeared in at least 50 games.</p>
+<section id="who-had-the-biggest-impact-in-the-202526-nba-season" class="level1">
+<h1>Who Had the Biggest Impact in the 2025–26 NBA Season?</h1>
+<p>Basketball fans often judge players first by one statistic: <strong>points per game</strong>. Scoring is important, but it does not capture everything a player contributes. A player can also create value through passing, rebounding, shooting efficiently, defending, and helping the team perform better while he is on the court.</p>
+<p>This creates a more useful question:</p>
+<blockquote class="blockquote">
+<p><strong>If we look beyond scoring, which players had the greatest overall impact during the 2025–26 NBA regular season?</strong></p>
+</blockquote>
+<p>To answer this question, I use web-scraped NBA data to compare traditional statistics with advanced measures of player value. I then combine several dimensions into a simple Impact Score.</p>
 </section>
-<section id="does-more-scoring-mean-more-impact" class="level2">
-<h2 class="anchored" data-anchor-id="does-more-scoring-mean-more-impact">Does More Scoring Mean More Impact?</h2>
-<p><img src="Figures/ppg_vs_bpm.png" class="img-fluid"></p>
-<p>The first figure compares points per game with BPM, an advanced measure of a player’s estimated contribution relative to an average player.</p>
-<p>There is clearly a positive relationship: higher-scoring players generally tend to have higher BPM. However, the relationship is far from perfect. Nikola Jokić stands out with the highest BPM even though he was not the league’s highest scorer. Shai Gilgeous-Alexander, Luka Dončić, Victor Wembanyama, and Kawhi Leonard also combine high scoring with strong BPM.</p>
-<p>This suggests that scoring contains useful information about player quality, but it does not capture the full picture.</p>
+<section id="data-collection-and-reproducibility" class="level1">
+<h1>Data Collection and Reproducibility</h1>
+<p>I used the <code>rvest</code> package in R to collect player statistics from <strong>Basketball-Reference</strong>. I scraped two publicly available tables: one containing traditional per-game statistics and another containing advanced statistics.</p>
+<p>The traditional data includes variables such as points, rebounds, assists, steals, and blocks. The advanced data includes <strong>True Shooting Percentage (TS%)</strong>, <strong>Box Plus/Minus (BPM)</strong>, <strong>Win Shares</strong>, and <strong>Value Over Replacement Player (VORP)</strong>.</p>
+<p>To keep the scraping process lightweight, I requested only the pages needed for the analysis and inserted a short delay between requests.</p>
+<p>I also saved the original scraped tables before cleaning them. This separates the workflow into two steps:</p>
+<ol type="1">
+<li>Collect and save the raw data.</li>
+<li>Clean and analyze the saved data.</li>
+</ol>
+<p>This makes the analysis easier to reproduce because the cleaning and visualization steps do not require scraping the website again every time the project is run.</p>
+<p>After collecting the data, I removed summary rows, converted relevant variables to numeric values, handled players who appeared for multiple teams, and merged the traditional and advanced datasets. I then restricted the sample to players who appeared in at least <strong>50 games</strong>, so that the comparison would not be driven by players with very small samples.</p>
 </section>
-<section id="efficiency-is-not-the-same-as-total-value" class="level2">
-<h2 class="anchored" data-anchor-id="efficiency-is-not-the-same-as-total-value">Efficiency Is Not the Same as Total Value</h2>
-<p><img src="Figures/ts_vs_vorp.png" class="img-fluid"></p>
-<p>The second figure compares True Shooting Percentage with VORP. TS% measures scoring efficiency while accounting for two-point shots, three-point shots, and free throws. VORP, in contrast, is intended to capture a player’s cumulative value relative to a replacement-level player.</p>
-<p>Again, the relationship is positive but imperfect. Some players on the far right of the graph have extremely high shooting efficiency but relatively modest VORP. This can happen when a player takes fewer shots or has a smaller offensive role.</p>
-<p>The most interesting players are therefore in the upper-right portion of the graph: they combine strong efficiency with high overall value. Jokić is especially notable, while Gilgeous-Alexander, Dončić, Wembanyama, Leonard, and Kevin Durant also perform strongly across these dimensions.</p>
+<section id="does-more-scoring-mean-more-impact" class="level1">
+<h1>Does More Scoring Mean More Impact?</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/ppg_vs_bpm.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Points per game versus Box Plus/Minus during the 2025–26 NBA season.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The first figure compares <strong>points per game</strong> with <strong>BPM</strong>, an advanced measure of a player’s estimated contribution relative to an average player.</p>
+<p>There is clearly a positive relationship. Players who score more generally tend to have higher BPM. However, the relationship is far from perfect.</p>
+<p>Nikola Jokić stands out with the highest BPM even though he was not the league’s highest scorer. Shai Gilgeous-Alexander, Luka Dončić, Victor Wembanyama, and Kawhi Leonard also combine high scoring with strong BPM.</p>
+<p>This matters because two players with similar scoring averages can still have very different overall impacts. Scoring tells us how much offensive production a player provides, while BPM also captures other parts of a player’s contribution.</p>
+<p>In other words, <strong>high scoring is useful evidence of player quality, but it is not enough by itself to rank players</strong>.</p>
 </section>
-<section id="building-a-simple-impact-score" class="level2">
-<h2 class="anchored" data-anchor-id="building-a-simple-impact-score">Building a Simple Impact Score</h2>
-<p>To compare players across several dimensions at once, I constructed a simple composite <strong>Impact Score</strong>. I standardized six variables—points, rebounds, assists, TS%, BPM, and VORP—using z-scores and then gave each variable equal weight.</p>
-<p>This is <strong>not an official NBA statistic</strong>. It is simply a transparent way to combine different types of contribution into one measure.</p>
-<p><img src="Figures/impact_top10.png" class="img-fluid"></p>
-<p>Based on this evaluation criteria, Nikola Jokić tops the list by a wide margin, followed closely by Luka Dončić and Shai Gilgeous-Alexander. Victor Wembanyama ranks fourth, while Jalen Johnson, Kawhi Leonard, Cade Cunningham, Tyrese Maxey, Jalen Duren, and Kevin Durant round out the top ten.</p>
-<p>A key finding is that this ranking does not simply mirror the scoring leaderboard. For example, Dončić ranks first in points per game among the players in this sample, but Jokić ranks higher in the comprehensive metrics due to his exceptional performance across multiple categories.</p>
+<section id="efficiency-is-not-the-same-as-total-value" class="level1">
+<h1>Efficiency Is Not the Same as Total Value</h1>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/ts_vs_vorp.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>True Shooting Percentage versus Value Over Replacement Player.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The second figure compares <strong>True Shooting Percentage</strong> with <strong>VORP</strong>.</p>
+<p>TS% measures scoring efficiency while accounting for two-point shots, three-point shots, and free throws. VORP, by contrast, attempts to measure a player’s cumulative value relative to a replacement-level player.</p>
+<p>Again, the relationship is positive but imperfect.</p>
+<p>Some players on the far right side of the graph have very high shooting efficiency but only modest VORP. One reason is that efficiency alone does not tell us how large a player’s role is. A player can shoot very efficiently while taking relatively few shots or playing a smaller offensive role.</p>
+<p>The most interesting players are therefore in the <strong>upper-right portion</strong> of the graph. They combine strong efficiency with high total value.</p>
+<p>Jokić is especially notable, while Gilgeous-Alexander, Dončić, Wembanyama, Leonard, and Kevin Durant also perform strongly across these dimensions.</p>
+<p>The comparison shows why player evaluation needs both <strong>efficiency and volume</strong>. Neither one alone tells the complete story.</p>
 </section>
-<section id="takeaway" class="level2">
-<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
-<p>The main lesson from this analysis is simple: <strong>points per game are useful, but they should not be used alone to evaluate NBA players.</strong></p>
-<p>Scoring, efficiency, playmaking, rebounding, and advanced impact measures capture different parts of a player’s contribution. For fans or analysts comparing players, combining traditional statistics with measures such as BPM, VORP, and TS% provides a more complete picture than relying on scoring alone.</p>
-<p>At the same time, any composite ranking depends on how “impact” is defined. My Impact Score gives equal weight to six statistics, and a different weighting scheme could produce a different ranking. The goal is therefore not to create a definitive list of the NBA’s best players, but to show how web-scraped data can produce a more nuanced comparison than a single statistic.</p>
+<section id="building-a-simple-impact-score" class="level1">
+<h1>Building a Simple Impact Score</h1>
+<p>To compare players across several dimensions at once, I constructed a simple <strong>Impact Score</strong>.</p>
+<p>I standardized six variables using z-scores:</p>
+<ul>
+<li>Points</li>
+<li>Rebounds</li>
+<li>Assists</li>
+<li>TS%</li>
+<li>BPM</li>
+<li>VORP</li>
+</ul>
+<p>I then gave each variable equal weight.</p>
+<p>The score can be written as:</p>
+<p><span class="math display">\[
+Impact_i =
+\frac{
+z(PTS_i)+
+z(REB_i)+
+z(AST_i)+
+z(TS_i)+
+z(BPM_i)+
+z(VORP_i)
+}{6}
+\]</span></p>
+<p>This is <strong>not an official NBA statistic</strong>. The purpose is not to create a perfect measure of player quality. Instead, it provides a transparent way to combine scoring, playmaking, rebounding, efficiency, and advanced impact into one measure.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/impact_top10.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Top 10 players based on the composite Impact Score.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Using this definition, <strong>Nikola Jokić ranks first</strong>, followed by Luka Dončić and Shai Gilgeous-Alexander. Victor Wembanyama ranks fourth, while Jalen Johnson, Kawhi Leonard, Cade Cunningham, Tyrese Maxey, Jalen Duren, and Kevin Durant complete the top ten.</p>
+<p>The important result is that this ranking does <strong>not</strong> simply reproduce the scoring leaderboard.</p>
+<p>For example, Dončić ranks first in points per game among the players in this sample, but Jokić ranks higher in the composite score because he performs exceptionally well across several other dimensions.</p>
+<p>That is exactly the information that would be lost if player evaluation were based only on PPG.</p>
+</section>
+<section id="what-should-we-use-to-compare-players" class="level1">
+<h1>What Should We Use to Compare Players?</h1>
+<p>The results suggest a practical way to evaluate NBA players.</p>
+<p>If the goal is to compare candidates for awards such as <strong>MVP or All-NBA</strong>, points per game can be a useful starting point, but it should not be the final ranking.</p>
+<p>A better approach is to first use scoring to understand a player’s offensive production, then use TS% to check whether that scoring is efficient, and finally use BPM and VORP to evaluate whether the player’s broader contributions translate into overall value.</p>
+<p>This approach prevents high-volume scorers from automatically being ranked above players who contribute more through efficiency, passing, rebounding, or all-around impact.</p>
+<p>For example, the results here suggest that a ranking based only on scoring would undervalue <strong>Nikola Jokić</strong>, whose advantage becomes much clearer once multiple dimensions are considered.</p>
+</section>
+<section id="limitations" class="level1">
+<h1>Limitations</h1>
+<p>The Impact Score should not be interpreted as a definitive ranking of NBA players.</p>
+<p>The six statistics receive equal weight, but there is no theoretical reason why scoring, rebounding, efficiency, BPM, and VORP should contribute equally to “impact.” A different weighting system could produce a different ranking.</p>
+<p>Some parts of basketball, especially defense, player roles, team context, and lineup quality, are also difficult to summarize using only a small number of statistics.</p>
+<p>Therefore, the score is better viewed as an illustration of how combining multiple measures can change our conclusions compared with using only one statistic.</p>
+</section>
+<section id="takeaway" class="level1">
+<h1>Takeaway</h1>
+<p>The main result is not simply that <strong>points per game are incomplete</strong>. Different statistics answer different questions.</p>
+<p>PPG measures scoring volume. TS% measures scoring efficiency. BPM and VORP attempt to capture broader overall value.</p>
+<p>For analysts, fans, or voters comparing NBA players, the most useful approach is therefore to <strong>combine traditional production with efficiency and advanced impact measures rather than ranking players by scoring alone</strong>.</p>
+<p>In this sample, that changes the interpretation substantially. Luka Dončić leads the scoring comparison, but Nikola Jokić rises to the top once a broader set of contributions is considered.</p>
+<p>The Impact Score itself is only one possible weighting system, but the larger lesson is more general:</p>
+<blockquote class="blockquote">
+<p><strong>The best scorer is not necessarily the most valuable player.</strong></p>
+</blockquote>
 
 
 </section>
