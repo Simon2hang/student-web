@@ -1,0 +1,178 @@
+---
+title: "Tatum or Brown: Did the Celtics Trade the Right Star?"
+author: "Simon Zhang"
+date: today
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+# Tatum or Brown: Did the Celtics Trade the Right Star?
+
+For almost a decade, **Jayson Tatum and Jaylen Brown** were the center of the Boston Celtics. Together, they reached multiple Eastern Conference Finals and finally won the 2024 NBA championship. Brown was also named Finals MVP during that championship run.
+
+However, Boston made a surprising decision in the summer of 2026 by trading Brown to Philadelphia while keeping Tatum as the main franchise player.
+
+This raises a simple question:
+
+> **Did the Celtics keep the better player?**
+
+```{r}
+#| label: tatum-brown-photo
+#| echo: false
+#| out-width: "100%"
+#| fig-align: center
+#| fig-cap: "Jayson Tatum and Jaylen Brown during their years together with the Boston Celtics."
+
+knitr::include_graphics("figures/jtjb.avif")
+```
+
+To explore this question, I use interactive Plotly visualizations to compare Tatum and Brown from the **2017–18 season through 2025–26**. Instead of defining the better player using only points per game, I compare scoring, rebounding, playmaking, shooting efficiency, playoff performance, and several advanced statistics.
+
+# Traditional Statistics
+
+The first visualization compares the two players using **points, rebounds, assists, true shooting percentage, three-point percentage, and plus/minus**.
+
+The dropdown allows the reader to switch between different statistics and also compare **regular-season and playoff performance**. Hovering over each point shows the exact value and number of games played.
+
+<iframe
+  src="figures/tatum_brown_interactive.html"
+  width="100%"
+  height="600"
+  style="border:none;">
+</iframe>
+
+One pattern is immediately clear: **Tatum generally contributes more across different parts of the game**.
+
+Over most of their careers together, Tatum scores more points, gets more rebounds, and creates more assists. Brown is much closer in shooting efficiency, especially in some playoff seasons, so the difference between the two players is not simply scoring ability.
+
+This is important because using only points per game could give a misleading answer. Both players are elite scorers, but Tatum has usually contributed more in other areas at the same time.
+
+# The Strange 2025–26 Season
+
+The 2025–26 season needs special attention.
+
+Tatum missed almost the entire regular season while recovering from a ruptured Achilles tendon. He did not return until March and finished the regular season with only **16 games played**. Because of this, comparing his total production with Brown in that season is not very meaningful.
+
+Brown took advantage of the larger role and had the best statistical season of his career. He averaged **28.7 points, 6.9 rebounds, and 5.1 assists**, while becoming Boston's clear first offensive option.
+
+Brown's performance shows that he was capable of carrying a team when Tatum was unavailable. However, it does not necessarily show that Brown had become the better long-term player.
+
+Tatum was returning from a major injury and was still working his way back into normal playing time. Therefore, the 2025–26 season should be interpreted differently from the previous seasons.
+
+# Looking Beyond the Box Score
+
+Traditional statistics tell only part of the story. To compare the players more completely, I also collected several advanced measures:
+
+- **PER** — Player Efficiency Rating
+- **WS** — Win Shares
+- **WS/48** — Win Shares per 48 minutes
+- **BPM** — Box Plus/Minus
+- **VORP** — Value Over Replacement Player
+- **USG%** — Usage Percentage
+
+The second interactive visualization allows the reader to switch between these measures.
+
+<iframe
+  src="figures/tatum_brown_advanced_interactive.html"
+  width="100%"
+  height="600"
+  style="border:none;">
+</iframe>
+
+The difference becomes much clearer when looking at advanced statistics.
+
+Across the nine seasons in the dataset, Tatum averages approximately **20.2 PER**, compared with **17.8 for Brown**.
+
+Tatum's average **WS/48 is about 0.154**, compared with **0.112 for Brown**. The difference in BPM is even larger: Tatum averages approximately **3.83 BPM**, while Brown averages about **0.90**.
+
+The most interesting result is the consistency.
+
+Tatum has a higher **WS/48 and BPM in every season in the sample**. He also has the higher PER, Win Shares, and VORP in eight of the nine seasons.
+
+This suggests that Tatum's advantage is not simply caused by scoring more points. Statistics that attempt to measure a player's overall impact also consistently favor him.
+
+# Why Does 2025–26 Look Different?
+
+Brown has higher total Win Shares and VORP than Tatum in 2025–26, but this does not necessarily mean he was more efficient.
+
+Both **Win Shares and VORP are cumulative statistics**. A player who plays many more games has much more time to accumulate value.
+
+This matters because Brown played almost the entire season, while Tatum appeared in only 16 regular-season games.
+
+When I instead look at a rate-based statistic such as **WS/48**, Tatum still has the advantage:
+
+- Tatum: **0.148**
+- Brown: **0.135**
+
+Tatum also has a higher BPM:
+
+- Tatum: **4.8**
+- Brown: **3.3**
+
+So Brown clearly produced more total value during the season because he was healthy and available, but Tatum's limited minutes still produced stronger results on several rate-based advanced measures.
+
+This is also why Brown's strong 2025–26 season should not automatically be interpreted as evidence that Boston traded the better player. Brown received a much larger offensive role because Tatum was unavailable, while Tatum's numbers came from a very small sample during his recovery.
+
+# Why Trade Brown?
+
+If Brown was still an elite player, why would Boston trade him?
+
+The decision was probably about more than basketball performance.
+
+Brown had a very large long-term contract, while Tatum was also signed to one of the largest contracts in the NBA. Keeping both players would have tied a very large percentage of Boston's salary cap to only two players.
+
+That becomes especially important because the difference in long-term performance between them is larger than the difference in salary would suggest. Brown was excellent, but Tatum consistently produced stronger advanced numbers across most of their careers together.
+
+Boston therefore had to consider whether paying two superstar-level contracts was the best way to build the roster.
+
+Celtics president Brad Stevens later explained that **salary flexibility and the ability to build the future roster** were major reasons behind the trade.
+
+Boston received **Paul George, two first-round picks, and two second-round picks** in return for Brown.
+
+Therefore, the real decision was not simply:
+
+> Brown or Tatum?
+
+It was closer to:
+
+> **Brown or Tatum as the long-term centerpiece, while also considering contracts, roster flexibility, and trade value?**
+
+From that perspective, the statistics make Boston's decision easier to understand.
+
+Brown had an outstanding 2025–26 season and proved that he could perform as a first option. However, across their full careers together, Tatum was more productive in most traditional categories and had a much stronger record in advanced metrics.
+
+# Takeaway
+
+The interactive visualizations suggest that **Jayson Tatum was the stronger overall player during the Tatum–Brown era**.
+
+Brown was extremely important to Boston's success. He won Finals MVP, helped the Celtics win a championship, and had the best individual season of his career while Tatum was injured.
+
+However, the longer-term data consistently favor Tatum.
+
+In particular, Tatum leads Brown in **BPM and WS/48 in every season in the sample**, while also leading in most seasons for PER, Win Shares, and VORP.
+
+For that reason, if Boston had to choose only one player as its long-term franchise centerpiece, **keeping Tatum appears to be the more reasonable choice based on the data**.
+
+That does not automatically mean trading Brown was a great trade. The final result will also depend on Paul George, Boston's future draft picks, Tatum's recovery, and how the Celtics use the additional financial flexibility.
+
+But if the question is simply:
+
+> **Tatum or Brown?**
+
+The numbers point more strongly toward **Jayson Tatum**.
+
+# Data Sources
+
+Game-level NBA data were collected using the `hoopR` R package.
+
+Advanced statistics were collected from **Basketball-Reference through `hoopR`**.
+
